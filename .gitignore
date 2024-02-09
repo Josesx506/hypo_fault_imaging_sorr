@@ -1,5 +1,8 @@
 *.pyc
 *.pdf
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
 Error_sensitivity
 Model_output
 hypoDD_Anzere_outliersremoved.txt
