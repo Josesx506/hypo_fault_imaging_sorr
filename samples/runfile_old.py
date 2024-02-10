@@ -32,7 +32,7 @@ import fault_network, model_validation, stress_analysis, auto_class, utilities, 
 # ##########################    Input parameters     ###########################
 input_params = {
     ###     Hypocenter input file
-    'hypo_file' : './data_examples/Sorrento/hypoDD_Sorrento.txt',        # File location
+    'hypo_file' : './data_examples/StLeonard/hypoDD_StLeonard.txt',        # File location
     'hypo_sep' : '\t',                                                 # Separator
     ###     Output directory
     'out_dir' : os.getcwd(),
@@ -43,7 +43,7 @@ input_params = {
     'mag_type' : 'ML',                  # magnitude type: 'ML' or 'Mw'
     ###     "Model Validation" module settings
     'validation_bool' : True,
-    'foc_file' : './data_examples/Sorrento/FocalMechanisms_Sorrento.txt',
+    'foc_file' : './data_examples/StLeonard/FocalMechanisms_StLeonard.txt',
     'foc_sep' : ';',
     'foc_mag_check' : True,             # check focal magnitude (recommended)
     'foc_loc_check' : True,             # check focal location (recommended)

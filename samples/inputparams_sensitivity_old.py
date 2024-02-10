@@ -26,24 +26,24 @@ import fault_network, model_validation
 # Specify the different r_nn and dt_nn parameters to be assessed
 # (example: St. Leonard)
 r_nn_list = [50, 100, 200, 400, 600, 800]
-dt_nn_list = [720, 3600, 8766, 26298, 999999]
+dt_nn_list = [48, 168, 8766, 26298, 999999]
 
 
 # ##########################    Input parameters     ###########################
 input_params = {
     ###     Hypocenter input file
-    'hypo_file' : './data_examples/Sorrento/hypoDD_Sorrento.txt',        # File location
+    'hypo_file' : './data_examples/StLeonard/hypoDD_StLeonard.txt',        # File location
     'hypo_sep' : '\t',                                                 # Separator
     ###     Output directory
     'out_dir' : os.getcwd(),
     ###     "Fault network reconstruction" module settings
     'n_mc' : 1000,                      # number of Monte Carlo simulations
-    'r_nn' : 1500,                       # search radius [m] of nearest neighbor search
-    'dt_nn' : 720,                    # search time window [h]
+    'r_nn' : 0,                       # search radius [m] of nearest neighbor search
+    'dt_nn' : 0,                    # search time window [h]
     'mag_type' : 'ML',                  # magnitude type: 'ML' or 'Mw'
     ###     "Model Validation" module settings
     'validation_bool' : True,
-    'foc_file' : './data_examples/Sorrento/FocalMechanisms_Sorrento.txt',
+    'foc_file' : './data_examples/StLeonard/FocalMechanisms_StLeonard.txt',
     'foc_sep' : ';',
     'foc_mag_check' : True,             # check focal magnitude (recommended)
     'foc_loc_check' : True,             # check focal location (recommended)
