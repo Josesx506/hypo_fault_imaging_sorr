@@ -81,16 +81,17 @@ print('')
 data_input, data_output = model_validation.focal_validation(input_params,
                                                             data_input,
                                                             data_output)
+print(data_input)
 
 ###############################################################################
 # Automatic Classification
-data_output = auto_class.auto_classification(input_params,
-                                             data_output)
+# data_output = auto_class.auto_classification(input_params,
+#                                              data_output)
 
 ###############################################################################
 # Fault Stress Analysis
-data_output, S2_trend, S2_plunge = stress_analysis.fault_stress(input_params,
-                                                                data_output)
+# data_output, S2_trend, S2_plunge = stress_analysis.fault_stress(input_params,
+#                                                                 data_output)
 
 ###############################################################################
 # Visualisation
