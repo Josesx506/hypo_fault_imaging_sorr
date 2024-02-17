@@ -3,6 +3,7 @@
 .DS_Store
 */.DS_Store
 */*/.DS_Store
+*/__pycache__
 Error_sensitivity
 Model_output
 hypoDD_Anzere_outliersremoved.txt

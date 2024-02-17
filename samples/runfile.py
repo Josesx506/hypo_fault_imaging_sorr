@@ -23,6 +23,8 @@ import time
 import numpy as np
 import os
 import sys
+import random
+random.seed(719)
 
 # Import modules of the provided toolbox
 sys.path.insert(0, './src')
@@ -32,29 +34,29 @@ import fault_network, model_validation, stress_analysis, auto_class, utilities, 
 # ##########################    Input parameters     ###########################
 input_params = {
     ###     Hypocenter input file
-    'hypo_file' : './data_examples/Sorrento/hypoDD_Sorrento.txt',        # File location
+    'hypo_file' : './data_examples/Sorrento/ESZ/hypoDD_Sorrento.txt',        # File location
     'hypo_sep' : '\t',                                                 # Separator
     ###     Output directory
     'out_dir' : os.getcwd(),
     ###     "Fault network reconstruction" module settings
-    'n_mc' : 1000,                      # number of Monte Carlo simulations
-    'r_nn' : 100,                       # search radius [m] of nearest neighbor search
-    'dt_nn' : 26298,                    # search time window [h]
-    'mag_type' : 'ML',                  # magnitude type: 'ML' or 'Mw'
+    'n_mc' : 1000,                     # number of Monte Carlo simulations
+    'r_nn' : 2000,                     # search radius [m] of nearest neighbor search
+    'dt_nn' : 17200,                   # search time window [h]
+    'mag_type' : 'ML',                 # magnitude type: 'ML' or 'Mw'
     ###     "Model Validation" module settings
     'validation_bool' : True,
-    'foc_file' : './data_examples/Sorrento/FocalMechanisms_Sorrento.txt',
+    'foc_file' : './data_examples/Sorrento/ESZ/FocalMechanisms_Sorrento.txt',
     'foc_sep' : ';',
     'foc_mag_check' : True,             # check focal magnitude (recommended)
     'foc_loc_check' : True,             # check focal location (recommended)
     ###     "Automatic Classification" module settings
     'autoclass_bool' : True,
-    'n_clusters' : 2,                   # number of expected classes
+    'n_clusters' : 1,                   # number of expected classes
     'algorithm' : 'vmf_soft',           # clustering algorithm
     'rotation' : True,                  # rotate poles before analysis (recommended for vertical faults)
     ###     "Fault Stress Analysis" module settings
     'stress_bool' : True,
-    'S1_trend' : 301,                   # σ1 trend
+    'S1_trend' : 270,                   # σ1 trend
     'S1_plunge' : 23,                   # σ1 plunge
     'S3_trend' : 43,                    # σ3 trend
     'S3_plunge' : 26,                   # σ3 plunge
@@ -75,18 +77,17 @@ print('')
 # Fault network reconstruction
 (data_input, data_output,
  per_X, per_Y, per_Z) = fault_network.faultnetwork3D(input_params)
- 
+
 ###############################################################################
 # Model Validation
 data_input, data_output = model_validation.focal_validation(input_params,
                                                             data_input,
                                                             data_output)
-print(data_input)
 
 ###############################################################################
 # Automatic Classification
-# data_output = auto_class.auto_classification(input_params,
-#                                              data_output)
+data_output = auto_class.auto_classification(input_params,
+                                             data_output)
 
 ###############################################################################
 # Fault Stress Analysis
