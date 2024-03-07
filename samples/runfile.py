@@ -40,7 +40,7 @@ input_params = {
     'out_dir' : os.getcwd(),
     ###     "Fault network reconstruction" module settings
     'n_mc' : 1000,                     # number of Monte Carlo simulations
-    'r_nn' : 2000,                     # search radius [m] of nearest neighbor search
+    'r_nn' : 1000,                     # search radius [m] of nearest neighbor search
     'dt_nn' : 17200,                   # search time window [h]
     'mag_type' : 'ML',                 # magnitude type: 'ML' or 'Mw'
     ###     "Model Validation" module settings

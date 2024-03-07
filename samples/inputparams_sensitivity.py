@@ -25,25 +25,25 @@ import fault_network, model_validation
 
 # Specify the different r_nn and dt_nn parameters to be assessed
 # (example: St. Leonard)
-r_nn_list = [500, 1000, 2000, 3500, 5000]
+r_nn_list = [800, 1000, 2000, 3500, 5000]
 dt_nn_list = [4300, 8600, 17200, 26298, 999999]
 
 
 # ##########################    Input parameters     ###########################
 input_params = {
     ###     Hypocenter input file
-    'hypo_file' : './data_examples/Sorrento/ESZ/hypoDD_Sorrento.txt',        # File location
+    'hypo_file' : './data_examples/Sorrento/WSZ/hypoDD_Sorrento.txt',        # File location
     'hypo_sep' : '\t',                                                 # Separator
     ###     Output directory
     'out_dir' : os.getcwd(),
     ###     "Fault network reconstruction" module settings
     'n_mc' : 1000,                       # number of Monte Carlo simulations
-    'r_nn' : 500,                        # search radius [m] of nearest neighbor search
+    'r_nn' : 800,                        # search radius [m] of nearest neighbor search
     'dt_nn' : 4300,                      # search time window [h]
     'mag_type' : 'ML',                   # magnitude type: 'ML' or 'Mw'
     ###     "Model Validation" module settings
     'validation_bool' : True,
-    'foc_file' : './data_examples/Sorrento/ESZ/FocalMechanisms_Sorrento.txt',
+    'foc_file' : './data_examples/Sorrento/WSZ/FocalMechanisms_Sorrento.txt',
     'foc_sep' : ';',
     'foc_mag_check' : True,             # check focal magnitude (recommended)
     'foc_loc_check' : True,             # check focal location (recommended)
@@ -101,4 +101,4 @@ axs.set_xlim([0, 70])
 axs.legend(prop={'size': 6})
 fig.tight_layout()
 
-plt.savefig(input_params['out_dir'] + '/InputParams_Sensitivity.pdf')
+plt.savefig(input_params['out_dir'] + '/InputParams_Sensitivity.png', dpi=200)
